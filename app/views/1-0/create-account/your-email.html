@@ -1,0 +1,60 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+text: "Back",
+href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+    <h1 class="govuk-heading-l">
+      <span class="govuk-caption-l">Create an account</span>
+      Your email
+    </h1>
+
+
+    <form class="form" action="your-name" method="post">
+      <!--
+        <p>
+          To access the Prevent Training Portal, you need to create an account.  Your account will give you access to training materials, e-learning modules, and community features.
+        
+
+        </p>-->
+      <p>
+
+        To start, please enter your email address. We’ll check if your email is already registered
+      </p>
+      <br />
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--s" for="email">
+          Email address
+        </label>
+        <div id="email-hint" class="govuk-hint">
+          You will be use this to access the Prevent Training Portal
+          <!-- "This email address will be used to access the Prevent Training Portal. It will not be made public and will only be used for password recovery or to send you important updates and notifications."  
+          -->
+        </div>
+        <input class="govuk-input" id="email" name="email" type="email" spellcheck="false" aria-describedby="email-hint"
+          autocomplete="email">
+      </div>
+
+      {{ govukButton({
+      text: "Continue"
+      }) }}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

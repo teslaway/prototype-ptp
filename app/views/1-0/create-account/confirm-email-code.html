@@ -1,0 +1,82 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+text: "Back",
+href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+    <h1 class="govuk-heading-l">
+      <span class="govuk-caption-l">Create an account</span>
+      Enter code to confirm your email address
+    </h1>
+
+
+    <form class="form" action="email-confirmed" method="post">
+
+      <p>
+        We have sent a code to: john.smith@homeoffice.gov.uk
+
+      </p>
+      <p>
+        The code will expire in 30 minutes.
+
+
+      </p>
+      <div class="govuk-warning-text">
+        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+        <strong class="govuk-warning-text__text">
+          <span class="govuk-visually-hidden">Warning</span>
+          If you use a browser to access your email, you may need to open a new window or tab to see the code.
+
+        </strong>
+      </div>
+      <br />
+     
+
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--s" for="authentication-code">
+          Confirmation code
+
+        </label>
+        <div id="authentication-code-hint" class="govuk-hint">
+          For example, DNCLRK
+
+        </div>
+        <input class="govuk-input govuk-input--width-5 govuk-input--extra-letter-spacing" id="authentication-code" name="authenticationCode" type="text" spellcheck="false" value="" aria-describedby="authentication-code-hint">
+      </div>
+
+
+      <details class="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            I have not received the email
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          The email may take a few minutes to arrive. Its subject line is: ‘Confirm your email address - Prevent Training Portal' <br /> <br />
+          Check your spam or junk folder – if it still has not arrived, you can <a href="#">request a new code</a> or <a href="#">provide another email address</a>.
+        </div>
+      </details>
+
+      {{ govukButton({
+      text: "Confirm"
+      }) }}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

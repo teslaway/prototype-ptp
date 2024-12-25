@@ -1,0 +1,142 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+  Check your answers template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  {{ govukBackLink({
+    text: "Back",
+    href: "javascript:window.history.back()"
+  }) }}
+{% endblock %}
+
+{% block content %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds-from-desktop">
+
+      <h1 class="govuk-heading-xl">
+        Check your account details before creating an account
+      </h1>
+
+      {{ govukSummaryList({
+        rows: [
+          {
+            key: {
+              text: "Email address"
+            },
+            value: {
+              text: "john.smith@homeoffice.gov.uk"
+            },
+            actions: {
+              items: [
+                {
+                  href: "your-email.html",
+                  text: "Change",
+                  visuallyHiddenText: "Your email address"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "First name"
+            },
+            value: {
+              text: "John"
+            },
+            actions: {
+              items: [
+                {
+                  href: "your-name.html",
+                  text: "Change",
+                  visuallyHiddenText: "Your full name"
+                }
+              ]
+            }
+          } 
+          ,
+          {
+            key: {
+              text: "Last name"
+            },
+            value: {
+              text: "Smith"
+            },
+            actions: {
+              items: [
+                {
+                  href: "your-name.html",
+                  text: "Change",
+                  visuallyHiddenText: "Your full name"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Password"
+            },
+            value: {
+              text: "**********"
+            },
+            actions: {
+              items: [
+                {
+                  href: "create-password.html",
+                  text: "Change",
+                  visuallyHiddenText: "Password"
+                }
+              ]
+            }
+          }
+          ,
+          {
+            key: {
+              text: "Confirm password"
+            },
+            value: {
+              text: "**********"
+            },
+            actions: {
+              items: [
+                {
+                  href: "create-password.html",
+                  text: "Change",
+                  visuallyHiddenText: "Password"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      <h2 class="govuk-heading-m">
+        Declerations
+      </h2>
+
+      <p>
+        By creating an account you are confirming that, 
+        <ul class="govuk-list govuk-list--bullet">
+         
+        <li>to the best of your knowledge, the details you are providing are correct.</li>
+        <li>you agree to the <a href="#">terms and conditions </a> of Prevent Training Portal.</li>
+
+      </ul>
+
+
+      </p>
+      <br /><br />
+      <form action="confirmation" method="post" novalidate>
+
+        {{ govukButton({
+          text: "Accept and submit"
+        }) }}
+
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

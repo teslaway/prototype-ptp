@@ -1,0 +1,52 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+{{ govukBackLink({
+text: "Back",
+href: "javascript:window.history.back()"
+}) }}
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+
+    <h1 class="govuk-heading-l">
+      <span class="govuk-caption-l">Create an account</span>
+      Enter your email address
+    </h1>
+
+
+    <form class="form" action="confirm-email-code" method="post">
+
+      <p>
+        This will only be used to send you security updates or if you need to recover your sign in details.
+      </p>
+      <p>
+        To confirm it is your email address we will send you a code.
+      </p>
+      <br />
+      <div class="govuk-form-group">
+        <label class="govuk-label govuk-label--s" for="email">
+          Email address
+        </label>
+        <input class="govuk-input" id="email" name="email" type="email" spellcheck="false" aria-describedby="email-hint"
+          autocomplete="email">
+      </div>
+
+      {{ govukButton({
+      text: "Continue"
+      }) }}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
