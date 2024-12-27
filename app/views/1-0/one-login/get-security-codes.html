@@ -1,0 +1,101 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Index" %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="" method="post" novalidate="">
+      <div class="govuk-form-group">
+
+        <fieldset class="govuk-fieldset" aria-describedby="2faMethod-hint">
+
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              Choose how to get security codes
+            </h1>
+          </legend>
+
+
+          <div id="2faMethod-hint" class="govuk-hint">
+            To finish creating your GOV.UK One Login, choose a way to prove it’s you when you sign in.
+          </div>
+
+          <div class="govuk-radios" data-module="govuk-radios">
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="2faMethod" name="2faMethod" type="radio" value="sms">
+              <label class="govuk-label govuk-radios__label" for="2faMethod">
+                Text message
+              </label>
+
+            </div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="2faMethod-2" name="2faMethod" type="radio" value="app">
+              <label class="govuk-label govuk-radios__label" for="2faMethod-2">
+                Authenticator app for smartphone, tablet or computer
+              </label>
+
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <details class="govuk-details" data-module="govuk-details">
+        <summary class="govuk-details__summary">
+          <span class="govuk-details__summary-text">
+            What is an authenticator app?
+          </span>
+        </summary>
+        <div class="govuk-details__text">
+          <p class="govuk-body">An authenticator app creates a security code that helps confirm it’s you when you sign
+            in.</p>
+          <p class="govuk-body">You can use an authenticator app on your smartphone, tablet or desktop computer.
+            Download an authenticator app for your smartphone or tablet from your app store or search online for an
+            authenticator app for your computer.</p>
+        </div>
+      </details>
+
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+
+    </form>
+
+  </div>
+</div>
+
+
+
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('form');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); // Prevent the default form submission
+      const selectedMethod = document.querySelector('input[name="2faMethod"]:checked').value;
+      let actionUrl = '';
+      switch (selectedMethod) {
+        case 'sms':
+          actionUrl = 'enter-phone-number'; // Update with the actual path for SMS verification
+          break;
+        case 'app':
+          actionUrl = 'setup-authenticator-app'; // Update with the actual path for App verification
+          break;
+        default:
+          console.error('Unknown 2FA method selected');
+          return; // Stop the function if the method is unknown
+      }
+      form.action = actionUrl; 
+      form.submit(); 
+    });
+  });
+  </script>
+{% endblock pageScripts %}

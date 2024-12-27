@@ -1,0 +1,104 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Index" %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">Enter your mobile phone number</h1>
+
+    <p class="govuk-body">We will send a 6 digit security code to the number you give us.</p>
+
+    <form action="check-your-phone" method="post" novalidate="">
+
+
+
+
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="telephone-number">
+          UK mobile phone number
+        </label>
+
+        <input class="govuk-input govuk-input--width-20" id="telephone-number" name="telephoneNumber" type="tel"
+          autocomplete="tel">
+
+      </div>
+
+
+
+
+
+      <div class="govuk-form-group">
+
+        <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+
+
+
+
+
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="hasInternationalPhoneNumber" name="hasInternationalPhoneNumber"
+              type="checkbox" value="true" aria-controls="conditional-hasInternationalPhoneNumber"
+              aria-expanded="false">
+            <label class="govuk-label govuk-checkboxes__label" for="hasInternationalPhoneNumber">
+              I do not have a UK mobile number
+            </label>
+
+          </div>
+
+          <div class="govuk-checkboxes__conditional govuk-checkboxes__conditional--hidden"
+            id="conditional-hasInternationalPhoneNumber">
+
+
+
+            <div class="govuk-form-group">
+              <label class="govuk-label" for="international-telephone-number">
+                Mobile phone number
+              </label>
+
+
+
+              <div id="international-telephone-number-hint" class="govuk-hint">
+                Include the country code, for example +33 for France
+              </div>
+
+              <input class="govuk-input govuk-input--width-20" id="international-telephone-number"
+                name="internationalTelephoneNumber" type="tel" aria-describedby="international-telephone-number-hint"
+                autocomplete="tel">
+
+            </div>
+
+
+          </div>
+
+
+
+        </div>
+
+      </div>
+
+
+
+
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+
+
+
+</script>
+{% endblock pageScripts %}

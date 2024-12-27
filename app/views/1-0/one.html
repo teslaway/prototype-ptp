@@ -1,0 +1,75 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Index" %}
+
+{% block content %}
+
+
+<div class="govuk-grid-row">
+	<div class="govuk-grid-column-two-thirds">
+
+
+        <h1 class="govuk-heading-l">Sign in or create an account using GOV.UK One Login
+        </h1>
+
+        <p>
+            You can create an account, or sign in if you already have an account.
+            Once you have signed in successfully, you will be automatically redirected to your Prevent Training Portal.
+        </p>
+
+  
+
+        <form class="form" action="one-login/start-onelogin" method="post">
+
+    
+
+            {{ govukButton({
+                text: "Go to GOV.UK One Login"
+                }) }}
+          
+
+        </form>
+        <h3 class="govuk-heading-m">To create a GOV.UK One Login account, or sign in, you'll need</h3>
+
+            <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+                
+                <li>an email address</li>
+                <li>a mobile phone
+
+                </li>
+            </ul>
+            
+        </p>
+        <p class="govuk-body">You’ll be given the opportunity to create a new GOV.UK One Login if you don’t already have one.</p>
+       
+      
+        <h3 class="govuk-heading-m">If you need help</h3>
+
+        <p class="govuk-body">If you’re experiencing problems logging into your GOV.UK Oneaccount, you can <a href="#" class="govuk-link govuk-link--no-visited-state" target="_blank" rel="noreferrer noopener">contact GOV.UK One Login team</a></p>
+
+
+        
+        <h2 class="govuk-heading-m">Get support</h2>
+        <p class="govuk-body">
+          If you need to speak to someone about the Prevent Training Portal or have any comments or suggestions,
+          contact the Home Office support team:
+        </p>
+  
+  
+        <ul class="govuk-list govuk-list--bullet">
+          <li> Email: <a href="#" class="govuk-link">prevent.training@homeoffice.gov.uk</a></li>
+          <li> Telephone: 0330 123 4567</li>
+        </ul>
+        <p>
+          <a href="#">
+            What did you think of this service?
+          </a> (takes 30 seconds)
+        </p>
+  
+
+    </div>
+
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,67 @@
+{% extends "layouts/main.html" %}
+
+{% set pageName="Index" %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <h1 class="govuk-heading-l">Check your email</h1>
+
+    <div class="govuk-inset-text">
+      <p class="govuk-body">We have sent an email to: <b>youremail@domain.com</b>.</p>
+    </div>
+
+    <p class="govuk-body">The email contains a 6 digit security code.</p>
+
+    <p class="govuk-body">Your email might take a few minutes to arrive. If you do not get an email, check your spam
+      folder.</p>
+
+    <p class="govuk-body">The code will expire after one hour.</p>
+
+    <form action="/create-password" method="post" novalidate="">
+
+
+
+      <div class="govuk-form-group">
+        <label class="govuk-label" for="code">
+          Enter the 6 digit security code
+        </label>
+
+        <input class="govuk-input govuk-input--width-10 govuk-input--extra-letter-spacing" id="code" name="code" type="text" spellcheck="false"
+          autocomplete="one-time-code" inputmode="numeric" maxlength="8">
+
+      </div>
+
+      <a href="create-password.html" role="button" draggable="false" class="govuk-button" data-module="govuk-button">
+
+        Continue
+      </a>
+
+    </form>
+
+    <details class="govuk-details" data-module="govuk-details">
+      <summary class="govuk-details__summary">
+        <span class="govuk-details__summary-text">
+          Problems with the code?
+        </span>
+
+      </summary>
+      <div class="govuk-details__text">
+        We can <a href="#" class="govuk-link" rel="noreferrer noopener" target="_blank">send the code again</a> or you
+        can <a href="#" class="govuk-link" rel="noreferrer noopener" target="_blank">use a different email address</a>.
+      </div>
+    </details>
+
+
+  </div>
+</div>
+{% endblock %}
+
+{% block pageScripts %}
+<script>
+
+
+
+</script>
+{% endblock pageScripts %}
